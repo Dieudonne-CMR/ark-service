@@ -1,0 +1,7 @@
+Pour le menu
+- Accueil
+- About
+- Service
+- Blog
+- Boutique
+- Contact
