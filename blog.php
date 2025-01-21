@@ -1,3 +1,12 @@
+<?php 
+include('api/cle_api.php');
+include('api/api_article.php');
+$services = recup_article();
+
+
+?>
+
+
 <!DOCTYPE html>
 <!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -952,20 +961,19 @@
                         <div class="col-lg-12">
                             <div class="content">
                                 <p class="sub-title">
-                                    Read The Latest News From Us
+                                    Quelques Activites effectuer chez nous
                                 </p>
                                 <h1 class="title">
-                                    Blog Right Sidebar
+                                    Bienvenu dans notre Blog
                                 </h1>
                                 <div class="icon-img">
                                     <img src="images/item/line-throw-title.png" alt="">
                                 </div>
                                 <div class="breadcrumb">
-                                    <a href="index.html">Home</a>
+                                    <a href="index.html">Acceuil</a>
                                     <div class="icon">
                                         <i class="icon-arrow-right1"></i>
                                     </div>
-                                    <a href="javascript:void(0)"> Blog Right Sidebar</a>
                                 </div>
                             </div>
                         </div>
@@ -986,6 +994,8 @@
                         <div class="col-lg-8">
                             <div class="blog-right-sidebar-wrap">
                                 <article class="article-blog-item style-2 mb-80">
+
+                                  
                                     <div class="image">
                                         <div class="video-wrap">
                                             <img class="lazyload" data-src="images/blog/blog-1.jpg"
@@ -1699,7 +1709,8 @@
                     </div>
                 </div>
             </div>
-
+            <?php include('includes/footer.php') ?>
+             <?php /*
             <div class="footer-inner">
                 <div class="tf-container w-1290">
                     <div class="row">
@@ -1873,39 +1884,8 @@
                     </div>
                 </div>
             </div>
-
-            <div class="tf-container w-1290">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-bottom">
-                            <p class="no-copy font-nunito">
-                                Copyright © 2024 Donal Farm by
-                                <span>
-                                    <a href="https://themeforest.net/user/themesflat/portfolio">
-                                        Themesflat</a>.</span>
-                                All Rights Reserved.
-                            </p>
-                            <ul class="policy-list">
-                                <li class="item">
-                                    <a href="#">
-                                        Confidentiality & Privacy
-                                    </a>
-                                </li>
-                                <li class="item">
-                                    <a href="#">
-                                        Legal Information
-                                    </a>
-                                </li>
-                                <li class="item">
-                                    <a href="#">
-                                        Return and Refund Policy
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            */?>
+            
             <div class="img-item item-1">
                 <img src="images/item/grass-2.png" alt="">
             </div>
