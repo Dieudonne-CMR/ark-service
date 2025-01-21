@@ -1,3 +1,12 @@
+<?php 
+include('api/cle_api.php');
+include('api/api_services.php');
+$services = recup_services();
+// var_dump($services);
+
+
+?>
+
 <!DOCTYPE html>
 <!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -141,7 +150,7 @@
             </div>
         </div><!-- /Top-bar --> */ ?>
 
-        <!-- Welcome -->
+       <?php /* <!-- Welcome -->
         <div class="box-welcome">
             <div class="tf-overlay"></div>
             <div class="welcome-wrap">
@@ -209,7 +218,7 @@
                     </div>
                 </div>
             </div>
-        </div><!-- /.Welcome -->
+        </div><!-- /.Welcome --> */?>
 
         <?php /*
         <!-- Header  -->
@@ -1174,29 +1183,36 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-lg-12">
                             <div class="grid-layout-3">
-                                <div class="box-infor ic-hover img-hover style-1 wow fadeInUp" data-wow-delay="0s">
-                                    <div class="image hover-icon hover-item">
-                                        <img src="images/widget/provide-item-1.jpg"
-                                            data-src="./images/widget/provide-item-1.jpg" alt="" class=" lazyload">
-                                        <div class="icon style-circle">
-                                            <i class="icon-salad"></i>
+                                <?php foreach($services as $value): ;?>
+
+                                    <div class="box-infor ic-hover img-hover style-1 wow fadeInUp" data-wow-delay="0s">
+                                        <div class="image hover-icon hover-item">
+                                            <img src="<?php echo $img_service . $value -> image ;?>"
+                                                data-src="<?php echo $img_service . $value -> image ;?>" alt="" class=" lazyload">
+                                            <div class="icon style-circle">
+                                                <i class="icon-salad"></i>
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <a href="service-detail.html"
+                                                class="title fs-23 fw-6 font-worksans hover-text-4">
+                                                <?= $value->nom ?>
+                                            </a>
+                                            <p class="text font-nunito">
+                                            <?= strip_tags( $value->description)  ?>
+                                            </p>
+                                            <a href="service.detail.php?mat_service=<?=$value->matricule_service ?>" class="tf-btn-read hover-text-4">Lire plus...</a>
                                         </div>
                                     </div>
-                                    <div class="content">
-                                        <a href="service-detail.html"
-                                            class="title fs-23 fw-6 font-worksans hover-text-4">
-                                            Clean Vegetables
-                                        </a>
-                                        <p class="text font-nunito">
-                                            Ultrices sagittis orci a scelerisque purus semper eget duis at. Sollicitudin
-                                            nibh sit amet
-                                            commodo nulla.
-                                        </p>
-                                        <a href="our-services.html" class="tf-btn-read hover-text-4">Read More</a>
-                                    </div>
-                                </div>
+
+                                <?php endforeach; ?>
+
+
+
+                                <?php /*
                                 <div class="box-infor ic-hover img-hover style-1 wow fadeInUp" data-wow-delay="0.1s">
                                     <div class="image hover-icon hover-item">
                                         <img src="images/widget/provide-item-2.jpg"
@@ -1218,6 +1234,7 @@
                                         <a href="our-services.html" class="tf-btn-read hover-text-4">Read More</a>
                                     </div>
                                 </div>
+
                                 <div class="box-infor ic-hover img-hover style-1 wow fadeInUp" data-wow-delay="0.2s">
                                     <div class="image hover-icon hover-item">
                                         <img src="images/widget/provide-item-3.jpg"
@@ -1240,6 +1257,7 @@
                                         <a href="our-services.html" class="tf-btn-read hover-text-4">Read More</a>
                                     </div>
                                 </div>
+
                                 <div class="box-infor ic-hover img-hover style-1 wow fadeInUp" data-wow-delay="0s">
                                     <div class="image hover-icon hover-item">
                                         <img src="images/widget/provide-item-4.jpg"
@@ -1261,6 +1279,7 @@
                                         <a href="our-services.html" class="tf-btn-read hover-text-4">Read More</a>
                                     </div>
                                 </div>
+
                                 <div class="box-infor ic-hover img-hover style-1 wow fadeInUp" data-wow-delay="0.1s">
                                     <div class="image hover-icon hover-item">
                                         <img src="images/widget/provide-item-5.jpg"
@@ -1282,6 +1301,7 @@
                                         <a href="our-services.html" class="tf-btn-read hover-text-4">Read More</a>
                                     </div>
                                 </div>
+
                                 <div class="box-infor ic-hover img-hover style-1 wow fadeInUp" data-wow-delay="0.2s">
                                     <div class="image hover-icon hover-item">
                                         <img src="images/widget/provide-item-6.jpg"
@@ -1302,7 +1322,8 @@
                                         </p>
                                         <a href="our-services.html" class="tf-btn-read hover-text-4">Read More</a>
                                     </div>
-                                </div>
+                                </div> */?>
+
                             </div>
 
                         </div>

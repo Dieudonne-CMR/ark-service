@@ -1,3 +1,26 @@
+<?php 
+include('api/cle_api.php');
+include('api/api_services.php');
+if(isset($_GET['mat_service']) && !empty($_GET['mat_service'])):
+    $mat_serv= $_GET['mat_service'];
+    $detail_service = Recuper_service_detail($mat_serv);
+    // var_dump($detail_service);
+    if(empty($detail_service)):
+        header("location: services.php");
+    else:
+        $titre = $detail_service[0]->nom;
+        $description = $detail_service[0]->description;
+        $image =  $detail_service[0]->image;
+    endif;
+
+else:
+    header("location: services.php");
+endif;
+$mat_serv
+
+?>
+
+
 <!DOCTYPE html>
 <!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->

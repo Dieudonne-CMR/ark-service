@@ -5,3 +5,11 @@ Pour le menu
 - Blog
 - Boutique
 - Contact
+
+21/01/2025
+Taches à faire 
+- Travailler les menus 
+- Travailler le detail d'un service
+- Travailler la page Blog
+- Travailler la page detail Blog
+- Includes le footer dans toutes les pages
