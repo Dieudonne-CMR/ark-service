@@ -1,3 +1,14 @@
+<?php
+include('api/cle_api.php');
+include('api/api_article.php');
+if (isset($_GET['mat_post']) AND !empty($_GET['mat_post'])) {
+    $mat_post=$_GET['mat_post'];
+    $detail_post = recup_detail_post($mat_post);
+}else{
+    header("location:blog.detail.php");
+
+} 
+?>
 <!DOCTYPE html>
 <!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->

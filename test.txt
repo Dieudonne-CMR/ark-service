@@ -13,3 +13,10 @@ Taches à faire
 - Travailler la page Blog
 - Travailler la page detail Blog
 - Includes le footer dans toutes les pages
+
+
+<?php /*foreach ($articles as $article) {
+    echo "<h2>" . htmlspecialchars($article['title']) . "</h2>";
+    echo "<p>" . htmlspecialchars($article['content']) . "</p>";
+    echo "<p><strong>Matricule:</strong> " . htmlspecialchars($article['matricule']) . "</p>";
+    }*/?>

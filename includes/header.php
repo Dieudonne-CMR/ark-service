@@ -929,6 +929,7 @@
     </div><!-- /nav-mobile -->
 
 <!-- Preloader -->
+ <?php /*
 <div id="loading">
     <div id="loading-center">
         <div class="loader-container">
@@ -941,4 +942,4 @@
             </div>
         </div>
     </div>
-</div><!-- /.Preloader -->
+</div><!-- /.Preloader --> */?>
