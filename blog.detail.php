@@ -1483,7 +1483,9 @@
                     </div>
                 </div>
             </div>
-
+            <?php include('includes/footer.php') ?>
+             
+            <?php /*
             <div class="footer-inner">
                 <div class="tf-container w-1290">
                     <div class="row">
@@ -1657,39 +1659,8 @@
                     </div>
                 </div>
             </div>
-
-            <div class="tf-container w-1290">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-bottom">
-                            <p class="no-copy font-nunito">
-                                Copyright © 2024 Donal Farm by
-                                <span>
-                                    <a target="_blank" href="https://themeforest.net/user/themesflat/portfolio">
-                                        Themesflat</a>.</span>
-                                All Rights Reserved.
-                            </p>
-                            <ul class="policy-list">
-                                <li class="item">
-                                    <a href="#">
-                                        Confidentiality & Privacy
-                                    </a>
-                                </li>
-                                <li class="item">
-                                    <a href="#">
-                                        Legal Information
-                                    </a>
-                                </li>
-                                <li class="item">
-                                    <a href="#">
-                                        Return and Refund Policy
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+             */?>
+            
             <div class="img-item item-1">
                 <img src="images/item/grass-2.png" alt="">
             </div>
