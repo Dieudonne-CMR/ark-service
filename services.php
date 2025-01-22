@@ -1186,7 +1186,7 @@ $services = recup_services();
 
                         <div class="col-lg-12">
                             <div class="grid-layout-3">
-                                <?php foreach($services as $value): ;?>
+                                <?php foreach($services as $value):?>
 
                                     <div class="box-infor ic-hover img-hover style-1 wow fadeInUp" data-wow-delay="0s">
                                         <div class="image hover-icon hover-item">
@@ -1914,7 +1914,8 @@ $services = recup_services();
                     </div>
                 </div>
             </div>
-
+            <?php include('includes/footer.php') ?>
+            <?php /*
             <div class="footer-inner">
                 <div class="tf-container w-1290">
                     <div class="row">
@@ -2088,49 +2089,9 @@ $services = recup_services();
                     </div>
                 </div>
             </div>
+            */?>
 
-
-            <div class="tf-container w-1290">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-bottom">
-                            <p class="no-copy font-nunito">
-                                Copyright © 2024 Donal Farm by
-                                <span>
-                                    <a href="https://themeforest.net/user/themesflat/portfolio">
-                                        Themesflat</a>.</span>
-                                All Rights Reserved.
-                            </p>
-                            <ul class="policy-list">
-                                <li class="item">
-                                    <a href="#">
-                                        Confidentiality & Privacy
-                                    </a>
-                                </li>
-                                <li class="item">
-                                    <a href="#">
-                                        Legal Information
-                                    </a>
-                                </li>
-                                <li class="item">
-                                    <a href="#">
-                                        Return and Refund Policy
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="img-item item-1">
-                <img src="images/item/grass-2.png" alt="">
-            </div>
-            <div class="img-item item-2 wow zoomIn">
-                <div class="scroll-element-4">
-                    <img src="images/item/silo.png" alt="">
-                </div>
-            </div>
-        </footer><!-- /Footer -->
+            
 
     </div><!-- /#Wapper -->
 

@@ -436,6 +436,35 @@
                                 <div class="main-nav">
                                     <ul class="nav-list">
                                         <li class="item has-child ">
+                                        <a href="index.php">Accueil</a>
+
+                                            </li>
+
+                                            <li class="item has-child">
+                                                <a href="about.php">A propos</a>
+
+                                            </li>
+
+                                            <li class="item has-child">
+                                                <a href="services.php">Services</a>
+
+                                            </li>
+
+                                            <li class="item has-child">
+                                                <a href="blog.php">Actualites</a>
+
+                                            </li>
+
+                                            <li class="item has-child">
+                                                <a href="shops.php">Boutiques</a>
+
+                                            </li>
+
+                                            <li class="item has-child">
+                                                <a href="contact.php">Contact</a>
+
+                                            </li>
+                                          <?php /*
                                             <a href="javascript:void(0)">Home</a>
                                             <ul class="sub-nav">
                                                 <li class="">
@@ -639,10 +668,13 @@
                                         <li class="item has-child">
                                             <a href="contact-us.html">Contact</a>
 
+                                            */?>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
+
+
                             <div class="header-right">
                                 <div class="icon-wrap">
                                     <a class="icon style-circle header-search" href="#canvasSearch"
@@ -703,11 +735,16 @@
                 </div>
                 <nav id="mobile-main-nav" class="mobile-main-nav">
                     <ul id="menu-mobile-menu" class="menu">
+
+                    
                         <li class="menu-item menu-item-has-children-mobile ">
-                            <a class="item-menu-mobile " href="javascript:void(0)">
-                                Home
+                            <a class="item-menu-mobile " href="services.php">
+                                Acceuil
+                                <?php /*
                                 <i class="icon-arrow_down"></i>
+                                */?>
                             </a>
+                            <?php /*
                             <ul class="sub-menu-mobile">
                                 <li class="menu-item ">
                                     <a href="index.html">Home 1</a>
@@ -719,12 +756,14 @@
                                     <a href="home-3.html">Home 3</a>
                                 </li>
                             </ul>
+                            */?>
                         </li>
                         <li class="menu-item menu-item-has-children-mobile">
-                            <a class="item-menu-mobile" href="javascript:void(0)">
-                                Page
-                                <i class="icon-arrow_down"></i>
+                            <a class="item-menu-mobile" href="about.php">
+                                A propos
+                                <?php /*<i class="icon-arrow_down"></i>*/?>
                             </a>
+                            <?php /*
                             <ul class="sub-menu-mobile">
                                 <li class="menu-item">
                                     <a href="about-us.html">About Us</a>
@@ -759,13 +798,14 @@
                                 <li class="menu-item">
                                     <a href="testimonial.html">Testimonial</a>
                                 </li>
-                            </ul>
+                            </ul> */?>
                         </li>
                         <li class="menu-item menu-item-has-children-mobile">
-                            <a class="item-menu-mobile" href="javascript:void(0)">
-                                Portfolio
-                                <i class="icon-arrow_down"></i>
+                            <a class="item-menu-mobile" href="services.php">
+                                Services
+                                <?php /*<i class="icon-arrow_down"></i>*/?>
                             </a>
+                            <?php /*
                             <ul class="sub-menu-mobile">
 
                                 <li class="menu-item">
@@ -784,12 +824,14 @@
                                     <a href="index.html">Portfolio Detail</a>
                                 </li>
                             </ul>
+                            */?>
                         </li>
                         <li class="menu-item menu-item-has-children-mobile">
-                            <a class="item-menu-mobile current" href="javascript:void(0)">
-                                Shop
-                                <i class="icon-arrow_down"></i>
+                            <a class="item-menu-mobile current" href="blog.php">
+                                Blog
+                                <?php /*<i class="icon-arrow_down"></i>*/?>
                             </a>
+                            <?php /*
                             <ul class="sub-menu-mobile">
 
                                 <li class="menu-item ">
@@ -798,13 +840,14 @@
                                 <li class="menu-item current">
                                     <a href="shop-details.html">Shop Detail</a>
                                 </li>
-                            </ul>
+                            </ul> */?>
                         </li>
                         <li class="menu-item menu-item-has-children-mobile">
-                            <a class="item-menu-mobile" href="javascript:void(0)">
-                                Services
-                                <i class="icon-arrow_down"></i>
+                            <a class="item-menu-mobile" href="shops.php">
+                                Boutiques
+                                <?php /*<i class="icon-arrow_down"></i>*/?>
                             </a>
+                            <?php /*
                             <ul class="sub-menu-mobile">
                                 <li class="menu-item">
                                     <a href="our-services.html">Our Services</a>
@@ -812,27 +855,14 @@
                                 <li class="menu-item">
                                     <a href="service-detail.html">Service Detail</a>
                                 </li>
-                            </ul>
+                            </ul>*/?>
                         </li>
-                        <li class="menu-item menu-item-has-children-mobile">
-                            <a class="item-menu-mobile" href="javascript:void(0)">Blog
-                                <i class="icon-arrow_down"></i></a>
-                            <ul class="sub-menu-mobile">
-                                <li class="menu-item">
-                                    <a href="blog-full-width.html">Blog Full Width</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="blog-right-sidebar.html">Blog Right
-                                        Sidebar</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="blog-single.html">Blog Single</a>
-                                </li>
-                            </ul>
-                        </li>
+                        
                         <li class="menu-item menu-item-has-children-mobile">
                             <a class="item-menu-mobile" href="contact-us.html">Contact</a>
-                        </li>
+                        </li> 
+
+                        
                     </ul>
                 </nav>
                 <div class="group-icon">
