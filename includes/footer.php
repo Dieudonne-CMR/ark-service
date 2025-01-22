@@ -221,7 +221,7 @@
                     <p class="no-copy font-nunito">
                         Copyright © 2024 Donal Farm by
                         <span>
-                            <a href="https://themeforest.net/user/themesflat/portfolio" target="_blank">
+                            <a href="https://themeforest.net/user/themesflat/portfolio">
                                 Themesflat</a>.</span>
                         All Rights Reserved.
                     </p>
@@ -250,7 +250,7 @@
         <img src="images/item/grass-2.png" alt="">
     </div>
     <div class="img-item item-2 wow zoomIn">
-        <div class="  ">
+        <div class="scroll-element-4">
             <img src="images/item/silo.png" alt="">
         </div>
     </div>

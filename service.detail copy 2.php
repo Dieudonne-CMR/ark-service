@@ -4,9 +4,10 @@ include('api/api_services.php');
 if(isset($_GET['mat_service']) && !empty($_GET['mat_service'])):
     $mat_serv= $_GET['mat_service'];
     $detail_service = Recuper_service_detail($mat_serv);
+    $services = recup_services();
     // var_dump($detail_service);
     if(empty($detail_service)):
-        header("location: services.php");
+         header("location: services.php");
     else:
         $titre = $detail_service[0]->nom;
         $description = $detail_service[0]->description;
@@ -16,7 +17,6 @@ if(isset($_GET['mat_service']) && !empty($_GET['mat_service'])):
 else:
     header("location: services.php");
 endif;
-
 ?>
 
 
@@ -964,11 +964,21 @@ endif;
                 <img src="images/item/page-title-top.png" alt="">
             </div>
         </header><!-- /.Header --> */ ?>
+        <?php /*
+        <style>
+            .page-title {
 
+                /* background-image: url("<?php echo $img_service . $image;?>") !important; 
+
+                }
+
+        </style>
+        */ ?>
         <!-- Page-title -->
         <div class="page-title page-our-service  ">
             <div class="rellax" data-rellax-speed="5">
-                <img src="images/page-title/our-service.jpg" alt="">
+            <img src="<?php echo $img_service . $image ;?>"
+            data-src="<?php echo $img_service .$image ;?>" alt="" class=" lazyload">
             </div>
             <div class="content-wrap">
                 <div class="tf-container w-1290">
@@ -976,25 +986,25 @@ endif;
                         <div class="col-lg-12">
                             <div class="content">
                                 <p class="sub-title">
-                                    What Services Do We Provide?
+                                    A la recherche d'un appartement???
                                 </p>
                                 <h1 class="title">
-                                    our services detail
+                                    Services de recherche immobiliere
                                 </h1>
                                 <div class="icon-img">
                                     <img src="images/item/line-throw-title.png" alt="">
                                 </div>
                                 <div class="breadcrumb">
-                                    <a href="index.html">Home</a>
+                                    <a href="index.php">Acceuil</a>
                                     <div class="icon">
                                         <i class="icon-arrow-right1"></i>
                                     </div>
-                                    <a href="our-services.html"> Our Services </a>
+                                    <a href="services.php"> Nos Services </a>
                                     <div class="icon">
                                         <i class="icon-arrow-right1"></i>
-                                    </div>
-                                    <a href="javascript:void(0)"> Our Services Detail </a>
-                                </div>
+                                    <?php /*
+                                    <a href="javascript:void(0)"> Detail Service </a>
+                                </div>*/?>
                             </div>
                         </div>
                     </div>
@@ -1016,14 +1026,14 @@ endif;
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="image">
-                                            <img src="images/widget/slide-service.jpg"
-                                                data-src="./images/widget/slide-service.jpg" alt="" class="lazyload">
+                                            <img src="<?php echo $img_service . $image ;?>"
+                                                data-src="<?php echo $img_service . $image ;?>" alt="" class="lazyload">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="image">
-                                            <img src="images/widget/slide-service.jpg"
-                                                data-src="./images/widget/slide-service.jpg" alt="" class="lazyload">
+                                            <img src="<?php echo $img_service . $image ;?>"
+                                                data-src="<?php echo $img_service . $image ;?>" alt="" class="lazyload">
                                         </div>
                                     </div>
                                 </div>
@@ -1035,286 +1045,33 @@ endif;
                                 </div>
                             </div>
                             <h2 class="title fw-7 text-anime-style-1">
-                                Pure Cow's Milk
+                            <?php echo $titre ?>
                             </h2>
-                            
-                            <div class="quote">
-                                <p class="font-snowfall">
-                                    Nulla accumsan sapien purus, at ultrices eros sagittis at. Duis leo purus,
-                                    gravida
-                                    ut consequat in, hendrerit a neque. Sed nec placerat odio, ut ultrices
-                                    magna. Etiam
-                                    in ligula pulvinar, semper dolor eu, commodo lorem. In interdum neque
-                                    libero.
-                                </p>
-                            </div>
 
                             <p class="text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut aliquam
-                                mauris.
-                                Maecenas porta odio lorem, in aliquet diam pellentesque vel. Donec pulvinar mi
-                                ipsum, a
-                                eleifend est porta id. Ut rutrum, quam vestibulum placerat sodales, ex eros
-                                tincidunt
-                                ipsum, varius venenatis risus magna.Pellentesque imperdiet id velit eu lobortis.
-                                Praesent metus tellus, venenatis ac volutpat ut, blandit ut arcu.
+                                <?php echo $description ?>
                             </p>
-
-                            <div class="offer-list">
-                                <div class="offer-wrap wow fadeInUp" data-wow-delay="0s">
-                                    <p class="caption">Services offered</p>
-                                    <ul class="list">
-                                        <li>
-                                            <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
-                                            <p>We are committed to not using pesticides</p>
-                                        </li>
-                                        <li>
-                                            <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
-                                            <p>Do not use preservatives</p>
-                                        </li>
-                                        <li>
-                                            <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
-                                            <p>Fresh Fruits & Vegetables</p>
-                                        </li>
-                                        <li>
-                                            <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
-                                            <p>Low price guaranteed with quality</p>
-                                        </li>
-                                        <li>
-                                            <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
-                                            <p>Environmental protection is the focus</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="offer-wrap wow fadeInUp" data-wow-delay="0.1s">
-                                    <p class="caption">Services offered</p>
-                                    <ul class="list">
-                                        <li>
-                                            <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
-                                            <p>We are committed to not using pesticides</p>
-                                        </li>
-                                        <li>
-                                            <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
-                                            <p>Do not use preservatives</p>
-                                        </li>
-                                        <li>
-                                            <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
-                                            <p>Fresh Fruits & Vegetables</p>
-                                        </li>
-                                        <li>
-                                            <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
-                                            <p>Low price guaranteed with quality</p>
-                                        </li>
-                                        <li>
-                                            <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
-                                            <p>Environmental protection is the focus</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <p class="text text-2">
-                                Fusce hendrerit urna vitae pretium fermentum. Cras scelerisque ornare aliquet.
-                                Sed
-                                dignissim nibh a est tincidunt euismod. Nunc tempus sapien a eros suscipit,
-                                fermentum
-                                viverra libero ullamcorper.Curabitur et nibh eu magna placerat suscipit quis sed
-                                lacus.
-                                Pellentesque vitae nisi sed elit pulvinar.
-                            </p>
-                            <p class="title-2">
-                                Our Solutions & Benefits
-                            </p>
-                            <div class="solution">
-                                <div class="wg-tabs style-5">
-                                    <ul class="overflow-x-auto menu-tab">
-                                        <li class="item active"><a href="javascript:void(0)" class="btn-tab">Solution
-                                                1</a></li>
-                                        <li class="item"><a href="javascript:void(0)" class="btn-tab">Solution
-                                                2</a>
-                                        </li>
-                                        <li class="item"><a href="javascript:void(0)" class="btn-tab">Solution
-                                                3</a>
-                                        </li>
-                                    </ul>
-                                    <div class="widget-content-tab">
-                                        <div class="widget-content-inner active">
-                                            <p>Nunc tempus sem consequat lacus cursus, in laoreet urna molestie.
-                                                Quisque
-                                                interdum egestas urna eget semper. Mauris sollicitudin
-                                                consectetur nulla
-                                                eu fringilla. Praesent id hendrerit urna, id facilisis ex.
-                                                Pellentesque
-                                                quam dolor, posuere id mollis et, rutrum sed est.
-                                            </p>
-                                        </div>
-                                        <div class="widget-content-inner">
-                                            <p>Nunc tempus sem consequat lacus cursus, in laoreet urna molestie.
-                                                Quisque
-                                                interdum egestas urna eget semper. Mauris sollicitudin
-                                                consectetur nulla
-                                                eu fringilla. Praesent id hendrerit urna, id facilisis ex.
-                                                Pellentesque
-                                                quam dolor, posuere id mollis et, rutrum sed est.
-                                            </p>
-                                        </div>
-                                        <div class="widget-content-inner">
-                                            <p>Nunc tempus sem consequat lacus cursus, in laoreet urna molestie.
-                                                Quisque
-                                                interdum egestas urna eget semper. Mauris sollicitudin
-                                                consectetur nulla
-                                                eu fringilla. Praesent id hendrerit urna, id facilisis ex.
-                                                Pellentesque
-                                                quam dolor, posuere id mollis et, rutrum sed est.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="text text-3">
-                                Aenean ut pharetra metus, convallis tincidunt erat. Aliquam vel justo neque.
-                                Etiam at
-                                lectus et neque viverra interdum eget nec enim. Nullam eu suscipit ligula.
-                                Aliquam at
-                                massa lobortis. urabitur et nibh eu magna placerat suscipit quis sed lacus.
-                                Pellentesque
-                                vitae nisi sed elit pulvinar.
-                            </p>
-                            <div class="benefit">
-                                <div class="box-icon style-3 ic-hover wow fadeInUp" data-wow-delay="0s">
-                                    <div class="icon hover-icon">
-                                        <i class="icon-tractor22"></i>
-                                    </div>
-                                    <a href="#" class="caption fw-6  font-worksans hover-text-4">
-                                        Modern Agro
-                                        Machinery
-                                    </a>
-                                </div>
-                                <div class="box-icon style-3 ic-hover wow fadeInUp" data-wow-delay="0.1s">
-                                    <div class="icon hover-icon">
-                                        <i class="icon-lemon-slice fs-40"></i>
-                                    </div>
-                                    <a href="#" class="caption fw-6  font-worksans hover-text-4">
-                                        Fresh Fruits
-                                        & Vegetables
-                                    </a>
-                                </div>
-                                <div class="box-icon style-3 ic-hover wow fadeInUp" data-wow-delay="0.2s">
-                                    <div class="icon hover-icon">
-                                        <i class="icon-barley fs-40"></i>
-                                    </div>
-                                    <a href="#" class="caption fw-6  font-worksans hover-text-4">
-                                        Wheat
-                                        Harvest Season
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="title-2 s2">
-                                We’re Here to Help You
-                            </p>
-                            <div class="tf-accordion accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                            What proof do you need for Carer’s tickets?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Aenean ut pharetra metus, convallis tincidunt erat. Aliquam vel
-                                            justo neque.
-                                            Etiam at lectus et neque viverra interdum eget nec enim. Nullam eu
-                                            suscipit
-                                            ligula. Aliquam at massa lobortis, vulputate tellus sit amet, mollis
-                                            mauris.
-                                            Mauris feugiat metus eget velit tempus.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                            aria-expanded="false" aria-controls="collapseTwo">
-                                            Do I have to pay extra for the shows?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Under 2’s are free and will need a ticket. Tickets are free of
-                                            charge but
-                                            attract a
-                                            booking fee to cover the cost of
-                                            processing the booking. If you book an under 2 ticket please bring
-                                            with you
-                                            proof of
-                                            age.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                            aria-expanded="false" aria-controls="collapseThree">
-                                            Can I bring my team or friends?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Under 2’s are free and will need a ticket. Tickets are free of
-                                            charge but
-                                            attract a
-                                            booking fee to cover the cost of
-                                            processing the booking. If you book an under 2 ticket please bring
-                                            with you
-                                            proof of
-                                            age.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                                            aria-expanded="false" aria-controls="collapseFour">
-                                            Can I join the farm as a permanent member?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseFour" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Under 2’s are free and will need a ticket. Tickets are free of
-                                            charge but
-                                            attract a
-                                            booking fee to cover the cost of
-                                            processing the booking. If you book an under 2 ticket please bring
-                                            with you
-                                            proof of
-                                            age.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4">
                         <div class="tf-sidebar tf-sidebar-2">
                             <div class="sidebar-item sb-category">
                                 <h5 class="sb-title">
-                                    Services Category
+                                    Autres Services
                                 </h5>
                                 <div class="sb-content">
                                     <ul class="category-list">
+                                    <?php foreach($services as $value): ;?>
                                         <li class="item">
-                                            <a href="#">General Question</a>
+                                            <a href="#"><?= $value-> nom ?></a>
                                         </li>
+
+                                        <?php /*
+                                        <a href="#">
                                         <li class="item">
-                                            <a href="#">Product Questions</a>
+                                    
+                                            
                                         </li>
                                         <li class="item">
                                             <a href="#">Questions About The Tour</a>
@@ -1326,6 +1083,8 @@ endif;
                                         <li class="item">
                                             <a href="#">How delivery works in Europe</a>
                                         </li>
+                                        */?>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </div>
                             </div>
@@ -1392,7 +1151,8 @@ endif;
 
 
         </div><!-- /.Main-content -->
-
+        <?php include('includes/footer.php') ?>
+        <?php /*
         <!-- Footer -->
         <footer class="footer" id="footer-main">
             <div class="tf-container w-1290">
@@ -1650,11 +1410,11 @@ endif;
                 </div>
             </div>
         </footer><!-- /Footer -->
-
+        */?>
     </div><!-- /#Wapper -->
 
     <!-- Open-search -->
-    <div class="offcanvas offcanvas-top offcanvas-search" id="canvasSearch">
+    <?php /*<div class="offcanvas offcanvas-top offcanvas-search" id="canvasSearch">
         <button class="btn-close-search" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
             <i class="icon-close"></i>
         </button>
@@ -1681,7 +1441,7 @@ endif;
                 </div>
             </div>
         </div>
-    </div><!-- /.Open-search -->
+    </div><!-- /.Open-search --> */?>
 
     <!-- Prograss -->
     <div class="progress-wrap">
