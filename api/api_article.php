@@ -1,5 +1,5 @@
 <?php
-  $url_image="https://akila.blog/@ressouce/mg_etablissement/"; // lien des images des articles
+//   $url_image="https://akila.blog/@ressouce/mg_etablissement/"; // lien des images des articles
 // $matricule_entreprise="654b7262c7d05";
 
 //===== recuper les tous les articles =====
@@ -79,6 +79,46 @@ function recup_detail_post($mat_post){
   }
   return  $obj[0];
 
+}
+
+//------------------------------fonction pour afficher les vues sur les posts
+
+function vues_posts($matricule_post){ 
+
+    $url_vues= "https://akila.blog/api_text/api_new/categorie_vues";
+    
+    $data1 = array( 
+               'matricule_post' => $matricule_post, 
+               );
+    
+    // utilisez 'http' même si vous envoyez la requête sur https:// ...
+    $options = array(
+     'http' => array(
+       'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+       'method'  => 'POST',
+       'content' => http_build_query($data1)
+     )
+    );
+    $context  = stream_context_create($options);
+    $result= file_get_contents($url_vues, false, $context);
+    $vues = json_decode($result);
+    if ($vues === FALSE) { /* Handle error */ }
+    // var_dump($vues);
+    return $vues;
+}
+
+
+//=== fonction qui recuper tous les produits ayant la meme categories============
+
+function recupProduitCategorie($mat_categori){
+    $artticles_cat=[];
+    $data= recup_article();
+    foreach($data as $value){
+        if($value->id_categorie == $mat_categori){
+            $artticles_cat[]=$value;
+        }
+    }
+    return $artticles_cat;
 }
 
 

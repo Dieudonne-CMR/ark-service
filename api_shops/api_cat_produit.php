@@ -1,16 +1,10 @@
 <?php
-//---requete pour afficher les elements d'une categores
 
-#--------api_shop id_website
-/*
-RewriteRule ^info_boutique$        api_shop/infos_boutique.php
-RewriteRule ^produits$        api_shop/recu_produit.php
-RewriteRule ^categorie_produits$        api_shop/categorie_produits.php 
-*/
-$id_website= '7220708820';
+// $id_website= '7220708820';
 
 //------------- Permet d'afficher les information d'une categorie
-function recup_detail_cat($id_website, $mat_ca_post){ 
+function recup_detail_cat($mat_ca_post){ 
+  global $id_website;
 
     $url_akila= "https://akila.store/categorie_produits";
     
@@ -36,7 +30,9 @@ function recup_detail_cat($id_website, $mat_ca_post){
   }
 
 //------------- Permet d'afficher les information d'une categorie
-  function recup_categories($id_website){ 
+  function recup_categories(){ 
+    global $id_website;
+
 
     $url_akila= "https://akila.store/categorie_produits";
     

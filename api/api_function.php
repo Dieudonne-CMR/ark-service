@@ -129,7 +129,7 @@ function recupProduitCategorie($mat_categori){
     return $artticles_cat;
 }
 
-
+//================= fonction qui permet de recuperer les services d'une entreprise=======================
 function Recuper_service_detail($mat_Services){
     $service=[];
     $data= recup_services();

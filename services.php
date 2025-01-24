@@ -1,6 +1,7 @@
 <?php 
 include('api/cle_api.php');
-include('api/api_services.php');
+// include("fonctions/fonctions.php");
+
 $services = recup_services();
 // var_dump($services);
 
@@ -974,11 +975,11 @@ $services = recup_services();
                                     <img src="images/item/line-throw-title.png" alt="">
                                 </div>
                                 <div class="breadcrumb">
-                                    <a href="index.html">Home</a>
+                                    <a href="index.php">Accueil</a>
                                     <div class="icon">
                                         <i class="icon-arrow-right1"></i>
                                     </div>
-                                    <a href="javascript:void(0)"> Our Services</a>
+                                    <a href="javascript:void(0)"> Services</a>
                                 </div>
                             </div>
                         </div>
@@ -1189,20 +1190,22 @@ $services = recup_services();
                                 <?php foreach($services as $value):?>
 
                                     <div class="box-infor ic-hover img-hover style-1 wow fadeInUp" data-wow-delay="0s">
-                                        <div class="image hover-icon hover-item">
-                                            <img src="<?php echo $img_service . $value -> image ;?>"
-                                                data-src="<?php echo $img_service . $value -> image ;?>" alt="" class=" lazyload">
-                                            <div class="icon style-circle">
-                                                <i class="icon-salad"></i>
+                                        <a href="service.detail.php?mat_service=<?=$value->matricule_service ?>">
+                                            <div class="image hover-icon hover-item">
+                                                <img src="<?php echo $img_service . $value -> image ;?>"
+                                                    data-src="<?php echo $img_service . $value -> image ;?>" alt="" class=" lazyload">
+                                                <div class="icon style-circle">
+                                                    <i class="icon-salad"></i>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                         <div class="content">
-                                            <a href="service-detail.html"
+                                            <a href="service.detail.php?mat_service=<?=$value->matricule_service ?>"
                                                 class="title fs-23 fw-6 font-worksans hover-text-4">
                                                 <?= $value->nom ?>
                                             </a>
                                             <p class="text font-nunito">
-                                            <?= strip_tags( $value->description)  ?>
+                                            <?= limiterNombreCaracteres( $value->description ,100) ?>
                                             </p>
                                             <a href="service.detail.php?mat_service=<?=$value->matricule_service ?>" class="tf-btn-read hover-text-4">Lire plus...</a>
                                         </div>

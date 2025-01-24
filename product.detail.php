@@ -1,3 +1,39 @@
+<?php
+ include('api_shops/cle_api_shop.php') ;
+ $produits=  recup_produict();
+//  var_dump(info_boutique());
+ if (isset($_GET['mat_pro']) AND !empty($_GET['mat_pro'])) {
+    $mat_pro=$_GET['mat_pro'];
+    $produict_detail = recup_produict_detail($mat_pro);
+    if(!empty($produict_detail)):
+
+    //  var_dump($produict_detail);
+    $titre = $produict_detail[0]->nom_art;
+    $petite_descrip= $produict_detail[0]->courte_description;
+    $grande_descrip= $produict_detail[0]->description;
+    $lien_img_vedette= $produict_detail[0]-> lien_img_vedette; 
+    $prix_reel= $produict_detail[0]-> prix_reel;
+    $prix_fictif= $produict_detail[0]-> prix_fictif;
+
+    $lien_img2          =    $produict_detail[0]->lien_img2;
+    $lien_img3          =    $produict_detail[0]->lien_img3;
+    $lien_img4          =   $produict_detail[0]->lien_img4;
+    $lien_img5          =   $produict_detail[0]->lien_img5;
+    
+        // $date= $detail_post->date;
+        $mumero='';
+   
+        $lien_watSapp = "https://api.whatsapp.com/send?phone=$mumero&text= Bonjour j'ai besoin de ce produit: ".url();
+
+    else:
+        header("location:shops.php");
+    endif;
+
+}else{
+    header("location:shops.php");
+
+} 
+?>
 <!DOCTYPE html>
 <!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -9,13 +45,13 @@
 <head>
 <!-- Basic Page Needs -->
 <meta charset="utf-8" />
-<title>Donal Farm HTML Template</title>
+<title><?= $titre ?></title>
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 <meta name="description"
-    content="DonalFarm is a minimal, clean, and modern One Page HTML Template designed for farms and other agriculture-related businesses, such as organic farms, agricultural research centers, or produce stores.">
+    content="<?= $titre ?>">
 <meta name="keywords"
-    content=" dairy farm, poultry farm, livestock, organic produce, fresh vegetables, fruits, grains, sustainable agriculture, eco-friendly farming, farm machinery, irrigation, tractor">
-<meta name="author" content="themesflat.com">
+    content="<?= $titre ?>">
+<meta name="author" content="Ark services">
 
 <!-- Mobile Specific Metas -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -68,141 +104,10 @@
         </div>
     </div><!-- /.Preloader -->
 
-    <?php /*
-    <!-- Top-bar -->
-    <div class="tf-topbar-shop">
-        <div class="tf-container w-1620">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="topbar-inner">
-                        <div class="topbar-left">
-                            <div class="icon style-circle">
-                                <i class="fa-solid fa-bell"></i>
-                            </div>
-                            <p>
-                                15% off when you buy online and pick up in store!
-                            </p>
-                        </div>
-                        <div class="topbar-right">
-                            <ul>
-                                <li class="item">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </div>
-                                    <a href="#">
-                                        Find a Store
-                                    </a>
-                                </li>
-                                <li class="item">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-truck"></i>
-                                    </div>
-                                    <a href="#">
-                                        Order Tracking
-                                    </a>
-                                </li>
-                                <li class="item">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-money-bill"></i>
-                                    </div>
-                                    <div class="tf-dropdown-sort tf-currencies" data-bs-toggle="dropdown"
-                                        aria-expanded="false" role="button">
-                                        <div class="btn-select">
-                                            <span class="text-sort-value">VND</span>
-                                            <div class="icon">
-                                                <i class="fa-solid fa-chevron-down"></i>
-                                            </div>
-                                        </div>
 
-                                        <div class="dropdown-menu">
-                                            <div class="select-item">
-                                                <span class="text-value-item active">VND</span>
-                                            </div>
-                                            <div class="select-item">
-                                                <span class="text-value-item">USD</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </li>
-                                <li class="item">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-globe"></i>
-
-                                    </div>
-
-                                    <div class="tf-dropdown-sort tf-languages" data-bs-toggle="dropdown"
-                                        aria-expanded="false" role="button">
-                                        <div class="btn-select">
-                                            <span class="text-sort-value">English</span>
-                                            <div class="icon">
-                                                <i class="fa-solid fa-chevron-down"></i>
-                                            </div>
-                                        </div>
-                                        <div class="dropdown-menu">
-                                            <div class="select-item">
-                                                <span class="text-value-item active">English</span>
-                                            </div>
-                                            <div class="select-item">
-                                                <span class="text-value-item">Spain</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="s-img-item item-1">
-            <img src="images/item/page-title-top.png" alt="">
-        </div>
-    </div><!-- /Top-bar --> */ ?>
     
     <?php include('includes/header.php') ?>
     <!-- Page-title -->
-
-    <div class="page-title page-portfolio-details  ">
-        <div class="rellax" data-rellax-speed="5">
-            <img src="images/page-title/shop-detail.jpg" alt="">
-        </div>
-        <div class="content-wrap">
-            <div class="tf-container w-1290">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="content center">
-                            <p class="sub-title">
-                                Buy Health Foods At Our Store
-                            </p>
-                            <h1 class="title">
-                                products detail
-                            </h1>
-                            <div class="icon-img">
-                                <img src="images/item/line-throw-title.png" alt="">
-                            </div>
-                            <div class="breadcrumb">
-                                <a href="index.html">Home</a>
-                                <div class="icon">
-                                    <i class="icon-arrow-right1"></i>
-                                </div>
-                                <a href="shop-products.html"> Shop Products </a>
-                                <div class="icon">
-                                    <i class="icon-arrow-right1"></i>
-                                </div>
-                                <a href="javascript:void(0)">Products Detail</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="img-item item-2">
-            <img src="images/item/grass-6.png" alt="">
-        </div>
-    </div><!-- /.Page-title -->
-
 
     <!-- Main-content -->
     <div class="main-content page-shop-detail pt-0">
@@ -280,33 +185,33 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="image item">
-                                            <img src="images/section/shop-detail-1.jpg"
-                                                data-src="images/section/shop-detail-1.jpg"
-                                                data-zoom="./images/section/shop-detail-1.jpg" alt=""
+                                            <img src="<?=$image_produit . $lien_img_vedette ?>"
+                                                data-src="<?=$image_produit .$lien_img_vedette ?>"
+                                                data-zoom="<?=$image_produit .$lien_img_vedette ?>" alt=""
                                                 class="lazyload tf-image-zoom">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="image item ">
-                                            <img src="images/section/shop-detail-2.jpg"
-                                                data-src="images/section/shop-detail-2.jpg"
-                                                data-zoom="./images/section/shop-detail-2.jpg" alt=""
+                                            <img src="<?=$image_produit . $lien_img2 ?>"
+                                                data-src="<?=$image_produit . $lien_img2 ?>"
+                                                data-zoom="<?=$image_produit . $lien_img2 ?>" alt=""
                                                 class="lazyload  tf-image-zoom">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="image item ">
-                                            <img src="images/section/shop-detail-3.jpg"
-                                                data-src="images/section/shop-detail-3.jpg"
-                                                data-zoom="./images/section/shop-detail-3.jpg" alt=""
+                                            <img src="<?=$image_produit . $lien_img3 ?>"
+                                                data-src="<?=$image_produit . $lien_img3 ?>"
+                                                data-zoom="<?=$image_produit . $lien_img3 ?>" alt=""
                                                 class="lazyload tf-image-zoom">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="image item">
-                                            <img src="images/section/shop-detail-4.jpg"
-                                                data-src="images/section/shop-detail-4.jpg"
-                                                data-zoom="./images/section/shop-detail-4.jpg" alt=""
+                                            <img src="<?=$image_produit . $lien_img3 ?>"
+                                                data-src="<?=$image_produit . $lien_img3 ?>"
+                                                data-zoom="<?=$image_produit . $lien_img3 ?>" alt=""
                                                 class="lazyload tf-image-zoom">
                                         </div>
                                     </div>
@@ -318,29 +223,29 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="image item">
-                                            <img src="images/section/shop-detail-1.jpg"
-                                                data-src="./images/section/shop-detail-1.jpg" alt=""
+                                            <img src="<?=$image_produit .$lien_img_vedette ?>"
+                                                data-src="<?=$image_produit .$lien_img_vedette?>" alt=""
                                                 class="lazyload">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="image item">
-                                            <img src="images/section/shop-detail-2.jpg"
-                                                data-src="./images/section/shop-detail-2.jpg" alt=""
+                                            <img src="<?=$image_produit . $lien_img2 ?>"
+                                                data-src="<?=$image_produit . $lien_img2 ?>" alt=""
                                                 class="lazyload">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="image item">
-                                            <img src="images/section/shop-detail-3.jpg"
-                                                data-src="./images/section/shop-detail-3.jpg" alt=""
+                                            <img src="<?=$image_produit . $lien_img3 ?>"
+                                                data-src="<?=$image_produit . $lien_img3 ?>" alt=""
                                                 class="lazyload">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="image item">
-                                            <img src="images/section/shop-detail-4.jpg"
-                                                data-src="./images/section/shop-detail-4.jpg" alt=""
+                                            <img src="<?=$image_produit . $lien_img3 ?>"
+                                                data-src="<?=$image_produit . $lien_img3 ?>" alt=""
                                                 class="lazyload">
                                         </div>
                                     </div>
@@ -356,7 +261,7 @@
                         <div class="tf-zoom-main"></div>
                         <div class="content-inner">
                             <h3 class="fw-6 name font-worksans title">
-                                Bag Of Succulent Oranges
+                            <?= $titre ?>
                             </h3>
                             <div class="rating-wrap">
                                 <div class="wg-rating">
@@ -367,24 +272,20 @@
                                     <i class="fa-solid fa-star"></i>
                                 </div>
                                 <p class="font-nunito">
-                                    5.00(1 customer review)
+                                    <!-- 5.00(1 customer review) -->
                                 </p>
                             </div>
                             <div class="price-wrap price-left">
-                                <span class=" price-1">$5.25</span>
+                                <span class=" price-1"><?= $prix_fictif ?> Fcfa</span>
 
-                                <span class=" price-2">$3.00</span>
+                                <span class=" price-2"><?=  $prix_reel ?> Fcfa</span>
                             </div>
                             <p class="sub font-nunito">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut aliquam
-                                mauris.
-                                Maecenas porta odio lorem, in aliquet
-                                diam pellentesque vel. Donec pulvinar mi ipsum, a eleifend est porta id. Laboris
-                                nisi ut aliquip ex ea commodo
-                                consequat.
+                               <?=  $petite_descrip ?>
                             </p>
-                            <ul class="notice-list">
-                                <li>
+                            <br> <br>
+                            <?php /*<ul class="notice-list">
+                               <li>
                                     <svg id="Layer_1" height="24" viewBox="0 0 512 512" width="24"
                                         xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">
                                         <path
@@ -409,7 +310,7 @@
                                     <p>
                                         Available: 12 in stock
                                     </p>
-                                </li>
+                                </li> 
                                 <li>
                                     <svg height="18" viewBox="0 0 58 44" width="24"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -457,22 +358,26 @@
                                         4 items sold in last 3 hours
                                     </p>
                                 </li>
-                            </ul>
-                            <div class="wrap-quantity">
+                            </ul> */?>
+                            <br> <br>
+                            <div class="wrap-quantity top-4">
                                 <div class="wg-quantity">
                                     <span class="btn-quantity plus-btn"> <i class="icon-arrow_up"></i></span>
                                     <input class="font-worksans fw-5" type="text" name="number" value="1">
                                     <span class="btn-quantity minus-btn"><i class="icon-arrow_down"></i></span>
                                 </div>
                                 <button type="submit" class="tf-btn btn-add-cart">
-                                    <span class="text-style">
-                                        Add To Cart
-                                    </span>
+                                    <a href="<?=$lien_watSapp ?>">
+                                        <span class="text-style">
+                                            Achettz maintenant !
+                                        </span>
+                                    </a>
                                     <span class="icon">
                                         <i class="fa-solid fa-cart-shopping"></i>
                                     </span>
                                 </button>
-                                <div class="white-list-wrap">
+
+                                <?php /*<div class="white-list-wrap">
                                     <a href="#" class="icon style-circle">
                                         <i class="fa-solid fa-heart"></i>
                                         <span class="tt-text">
@@ -485,8 +390,9 @@
                                             Compare
                                         </span>
                                     </a>
-                                </div>
+                                </div> */?>
                             </div>
+                            <?php /*
                             <ul class="more-infor">
                                 <li>
                                     <p>SKU:0282</p>
@@ -501,9 +407,9 @@
                                     </p>
                                 </li>
 
-                            </ul>
+                            </ul> */?>
                             <div class="bot">
-                                <p class="font-worksans fw-5 text">Share:</p>
+                                <p class="font-worksans fw-5 text">Partager:</p>
                                 <div class="wg-social style-3">
                                     <ul class="list">
                                         <li class="item">
@@ -536,10 +442,10 @@
 
                                 <div class="tf-atc-product">
                                     <div class="img-product">
-                                        <img src="images/section/shop-detail-1.jpg" alt="">
+                                        <img src="<?=$image_produit .$lien_img_vedette ?>" alt="">
                                     </div>
                                     <span class="name-product">
-                                        Bag Of Succulent Oranges
+                                    <?= $titre ?>
                                     </span>
                                 </div>
                                 <div class="tf-atc-btn">
@@ -552,14 +458,17 @@
                                                     class="icon-arrow_down"></i></span>
                                         </div>
                                         <button type="submit" class="tf-btn btn-add-cart">
-                                            <span class="text-style">
-                                                Add To Cart
-                                            </span>
+                                            <a href="<?=$lien_watSapp ?>" >
+                                                <span class="text-style">
+                                                    Achettz maintenant !
+                                                </span>
+                                            </a>
                                             <span class="icon">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                             </span>
                                         </button>
-                                        <div class="white-list-wrap">
+
+                                        <?php /*<div class="white-list-wrap">
                                             <a href="#" class="icon style-circle">
                                                 <i class="fa-solid fa-heart"></i>
                                                 <span class="tt-text">
@@ -572,7 +481,7 @@
                                                     Compare
                                                 </span>
                                             </a>
-                                        </div>
+                                        </div> */?>
                                     </div>
                                 </div>
                             </div>
@@ -592,43 +501,21 @@
                                 <ul class="menu-tab">
                                     <li class="item active"><a href="javascript:void(0)"
                                             class="btn-tab">Description</a></li>
-                                    <li class="item"><a href="javascript:void(0)" class="btn-tab">Additional
+
+                                    <?php /*<li class="item"><a href="javascript:void(0)" class="btn-tab">Additional
                                             information</a>
                                     </li>
                                     <li class="item"><a href="javascript:void(0)" class="btn-tab">Review ( 1
                                             )</a>
-                                    </li>
+                                    </li> */?>
                                 </ul>
                             </div>
 
                             <div class="widget-content-tab">
                                 <div class="widget-content-inner active">
-                                    <p class="text-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Vivamus lacus
-                                        odio, egestas
-                                        vitae augue sed, vulputate viverra
-                                        velit. Quisque fringilla viverra turpis, at condimentum arcu convallis
-                                        sit
-                                        amet. Class
-                                        aptent taciti sociosqu ad litora
-                                        torquent per conubia nostra, per inceptos himenaeos. Fusce laoreet
-                                        lectus in
-                                        velit
-                                        euismod.
+                                    <p class="text-1"> <?= $grande_descrip ?>
                                     </p>
-                                    <p class="text-2">
-                                        Nulla accumsan sapien purus, at ultrices eros sagittis at. Duis leo
-                                        purus,
-                                        gravida ut
-                                        consequat in, hendrerit a neque.
-                                        Sed nec placerat odio, ut ultrices magna. Etiam in ligula pulvinar,
-                                        semper
-                                        dolor eu,
-                                        commodo lorem. In interdum neque
-                                        libero. eget volutpat nibh commodo et. Aenean sem erat, viverra in
-                                        condimentum in,
-                                        efficitur id massa.
-                                    </p>
+                                    
                                 </div>
                                 <div class="widget-content-inner">
                                     <div class="table-infor">
@@ -644,7 +531,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="widget-content-inner">
+                               <?php /* <div class="widget-content-inner">
                                     <div class="comment-wrap text-left">
                                         <h2 class=" fw-bold font-worksans">
                                             Comments
@@ -712,7 +599,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div> */?>
                             </div>
                         </div>
                     </div>
@@ -726,31 +613,34 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h2 class="title fw-7 fs-45 text-center">
-                            Related Products
+                            Autre produits
                         </h2>
                         <div class="swiper-container slider-relate-product">
                             <div class="swiper-wrapper">
+                            <?php foreach($produits as $kys=>$value): ?>
+                                <?php if( $kys<=4): ?>
+
                                 <div class="swiper-slide">
                                     <div class="card-product style-2 mw-unset">
-                                        <ul class="trendy-list">
+                                        <?php /*<ul class="trendy-list">
                                             <li class="trendy-item ">
                                                 <p class="color-2">New</p>
                                             </li>
                                             <li class="trendy-item ">
                                                 <p class="color-3">Hot</p>
                                             </li>
-                                        </ul>
+                                        </ul> */?>
                                         <div class="image">
-                                            <img src="images/item/macaroni.png"
-                                                data-src="./images/item/macaroni.png" alt="" class="lazyload">
+                                            <img src="<?= $image_produit . $value->lien_img_vedette ?>"
+                                                data-src="<?= $image_produit . $value->lien_img_vedette ?>" alt="" style="height: 228px; width:216px" class="lazyload">
                                         </div>
                                         <a href="#" class="name-product font-worksans hover-text-4">
-                                            Iceland Macaroni Cheese
+                                        <?= limiterNombreCaracteres($value ->nom_art,50) ?>
                                         </a>
                                         <div class="pricing-star">
                                             <div class="price-wrap">
 
-                                                <span class=" price-2">$3.00</span>
+                                                <span class=" price-2"><?=  $value ->prix_reel ?> Fcfa</span>
                                             </div>
                                             <div class="wg-rating">
                                                 <i class="fa-solid fa-star"></i>
@@ -761,17 +651,18 @@
                                             </div>
                                         </div>
                                         <div class="product-btn-list">
-                                            <a href="#" class="icon shoping">
+                                            <a href="product.detail.php?mat_pro=<?=  $value -> mat_article ?>" class="icon shoping">
 
                                                 <div class="tt-text">
 
                                                     <p>
-                                                        Add to card
+                                                        Commandez 
                                                     </p>
                                                 </div>
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                             </a>
-                                            <a href="#" class="icon white-list">
+
+                                            <?php /*<a href="#" class="icon white-list">
                                                 <div class="tt-text">
 
                                                     <p>
@@ -779,8 +670,8 @@
                                                     </p>
                                                 </div>
                                                 <i class="fa-solid fa-heart"></i>
-                                            </a>
-                                            <a href="#" class="icon view-product">
+                                            </a> */?>
+                                            <?php /*<a href="product.detail.php?mat_pro=<?=  $value -> mat_article ?>" class="icon view-product">
                                                 <div class="tt-text">
 
                                                     <p>
@@ -797,10 +688,15 @@
                                                     </p>
                                                 </div>
                                                 <i class="fa-solid fa-repeat"></i>
-                                            </a>
+                                            </a> */?>
                                         </div>
                                     </div>
                                 </div>
+
+                                <?php else: break; endif ?>
+                            <?php endforeach ?>
+
+                                <?php /*
                                 <div class="swiper-slide">
                                     <div class="card-product style-2 mw-unset">
                                         <div class="image">
@@ -865,6 +761,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="swiper-slide ">
                                     <div class="card-product style-2 mw-unset">
                                         <ul class="trendy-list">
@@ -937,6 +834,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="swiper-slide">
                                     <div class="card-product style-2 mw-unset">
 
@@ -1000,8 +898,10 @@
                                             </a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */?>
+
                             </div>
+
                         </div>
                         <div class="btn-slide-product btn-next">
                             <i class="fa-solid fa-chevron-right"></i>
